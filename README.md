@@ -1,4 +1,7 @@
 # Function Object-Based Overloading of Operator Dot
 
-This repository will soon contain source code related to the C++ standards proposal to overload
-operator dot with a function object approach.
+Contains a macro-based emulation of [P0060R0] (http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2015/p0060r0.html)
+as well as examples that can be built with it.
+
+Build the examples repository using CMake.
+Requires a C++14 compiler and Boost 1.56 or later.
