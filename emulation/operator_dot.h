@@ -11,20 +11,20 @@
 template<class F>
 struct operator_dot_impl : F
 {
-	operator_dot_impl(const char* name_, F const& f) : F(f)
-	{
-		d_name = name_;
-	}
+    operator_dot_impl(const char* name_, F const& f) : F(f)
+    {
+        d_name = name_;
+    }
 
-	using F::operator();
+    using F::operator();
 
-	static const char* name()
-	{
-		return d_name;
-	}
+    static const char* name()
+    {
+        return d_name;
+    }
 
 private:
-	static const char* d_name;
+    static const char* d_name;
 };
 
 template<class F>
@@ -33,7 +33,7 @@ const char* operator_dot_impl<F>::d_name = 0;
 template<class F>
 operator_dot_impl<F> make_operator_dot_impl(const char* name, F const& f)
 {
-	return operator_dot_impl<F>(name, f);
+    return operator_dot_impl<F>(name, f);
 }
 
 #define OPERATOR_DOT(obj, name) obj.operator_dot(make_operator_dot_impl(#name, [&](auto&& __obj) -> decltype(__obj.name) { return __obj.name; }))
